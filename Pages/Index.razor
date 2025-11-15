@@ -2,19 +2,19 @@
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
 @inject OrderState OrderState
+@layout MainLayout
 
 <div class="main">
-  <h1>Blazing Pizzas</h1>
   <ul class="pizza-cards">
     @if (specials != null)
     {
       @foreach (var special in specials)
       {
-          <li @onclick="@(() => OrderState.ShowConfigurePizzaDialog(special))" style="background-image: url('@special.ImageUrl')">
+        <li @onclick="@(() => OrderState.ShowConfigurePizzaDialog(special))" style="background-image: url('@special.ImageUrl')">
           <div class="pizza-info">
-          <span class="title">@special.Name</span>
-          @special.Description
-          <span class="price">@special.GetFormattedBasePrice()</span>
+            <span class="title">@special.Name</span>
+            @special.Description
+            <span class="price">@special.GetFormattedBasePrice()</span>
           </div>
         </li>
       }
